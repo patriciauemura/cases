@@ -52,9 +52,11 @@ function saveDraft() {
 }
 
 setCustumerEmail()
-emailInMenu()
-setTimeout(function() {
-  technicalSolutions()
-  myCase().innerHTML = g_template
-  saveDraft()  
-}, 1500)
+setTimeout(function () {
+  emailInMenu()
+  setTimeout(function () {
+    technicalSolutions()
+    myCase().innerHTML = g_template
+    saveDraft()
+  }, 1500)
+}, 500)
