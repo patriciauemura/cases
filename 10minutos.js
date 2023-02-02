@@ -19,7 +19,7 @@ function returnPhone() {
   }
   setTimeout(function() {
     g_phoneNumber = document.querySelector('[debugid="pii-phone-value"]').innerText.replace(' ', '')
-  }, 200)
+  }, 500)
   return g_phoneNumber
 }
 
