@@ -10,7 +10,7 @@ function returnName() {
   document.querySelector('img[class*="photo"]').click()
   setTimeout(function () {
     g_agent_name = document.querySelector("profile-details > div > div.name").innerText
-  }, 500)
+  }, 300)
   return g_agent_name
 }
 
@@ -19,7 +19,7 @@ function returnPhone() {
   }
   setTimeout(function() {
     g_phoneNumber = document.querySelector('[debugid="pii-phone-value"]').innerText.replace(' ', '')
-  }, 500)
+  }, 600)
   return g_phoneNumber
 }
 
@@ -75,9 +75,9 @@ function saveDraft() {
 
 setCustumerEmail()
 setTimeout(function () {
-  var g_template = returnTemplate()
   emailInMenu()
   setTimeout(function () {
+    var g_template = returnTemplate()
     technicalSolutions()
     console.log(g_agent_name)
     myCase().innerHTML = g_template
