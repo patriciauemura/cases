@@ -103,7 +103,6 @@ var g_agent_name = returnName()
 var g_phoneNumber = returnPhone()
 var g_id_case = document.querySelector('[src="https://pulse-tracker.corp.google.com/tracking_script.js"]').getAttribute('data-case-id')
 var g_client_name = document.querySelector('title').innerText.split(' ')[1]
-var g_tasks = Array.from(document.querySelectorAll('cuf-form-field')).filter(function (e) { return e.innerText.includes('Tasks') })[0].innerText.replace('Tasks\n', '').split('\n').join(', ')
 var g_website = Array.from(document.querySelectorAll('cuf-form-field')).filter(function (e) { return e.innerText.includes('Website') })[0].innerText.split('\n')[1]
 var g_appointment = g_Appointment()
 
@@ -112,6 +111,7 @@ setCustumerEmail()
 setTimeout(function () {
   emailInMenu()
   setTimeout(function () {
+    var g_tasks = Array.from(document.querySelectorAll('cuf-form-field')).filter(function (e) { return e.innerText.includes('Tasks') })[0].innerText.replace('Tasks\n', '').split('\n').join(', ')
     var g_template = returnTemplate()
     technicalSolutions()
     console.log(g_agent_name)
