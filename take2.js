@@ -6,6 +6,7 @@ function g_Appointment() {
   return `${date} às ${time}`
 }
 
+document.querySelector('[debug-id="dock-item-home"]').click()
 var g_id_case = document.querySelector('[src="https://pulse-tracker.corp.google.com/tracking_script.js"]').getAttribute('data-case-id')
 var g_client_name = document.querySelector('title').innerText.split(' ')[1]
 var g_tasks = Array.from(document.querySelectorAll('cuf-form-field')).filter(function (e) { return e.innerText.includes('Tasks') })[0].innerText.replace('Tasks\n', '').split('\n').join(', ')
