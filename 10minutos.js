@@ -1,3 +1,25 @@
+// https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
+
+function waitForElemente(selector) {
+  return new Promise(resolve => {
+      if (document.querySelector(selector)) {
+          return resolve(document.querySelector(selector));
+      }
+
+      const observer = new MutationObserver(mutations => {
+          if (document.querySelector(selector)) {
+              resolve(document.querySelector(selector));
+              observer.disconnect();
+          }
+      });
+
+      observer.observe(document.body, {
+          childList: true,
+          subtree: true
+      });
+  });
+}
+
 function g_Appointment() {
   let dateTime = Array.from(document.querySelectorAll('cuf-form-field')).filter(function (e) { return e.innerText.includes('Time') })[0].innerText.split('\n')[1]
   dateTime = new Date(dateTime)
@@ -46,18 +68,28 @@ function setCustumerEmail() {
 }
 
 function emailInMenu() {
-  document.querySelector('[role="menu"]').dispatchEvent(new Event('focus', { 'bubbles': true }))
-  setTimeout(function () {
-    document.querySelector('[aria-label="Create new email"]').click()
-  }, 500)
+  waitForElemente('[role="menu"]').then((elm) => {
+    console.log('[+] create email 1')
+    elm.dispatchEvent(new Event('focus', { 'bubbles': true }))
+  });
+
+  waitForElemente('[aria-label="Create new email"]').then((elm) => {
+    console.log('[+] create email 2')
+    elm.click()
+  });
 }
 
 // Altera o email para o email do Techincal Solutions
 function technicalSolutions() {
-  document.querySelector('[buttoncontent][class*="address"]').click()
-  setTimeout(function () {
-    document.querySelector('[id="email-address-id--technical-solutions@google.com"]').click()
-  }, 500)
+  waitForElemente('[buttoncontent][class*="address"]').then((elm) => {
+    console.log('[+] techincal')
+    elm.click()
+  });
+
+  waitForElemente('[id="email-address-id--technical-solutions@google.com"]').then((elm) => {
+    console.log('[+] techincal 2')
+    elm.click()
+  });
 }
 
 // Retorna o conteúdo do email a ser editado
