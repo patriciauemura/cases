@@ -43,15 +43,6 @@ function myCase() {
   return Array.from(document.querySelectorAll('[id="email-body-content-top-content"]')).pop()
 }
 
-function returnPhone() {
-  if (document.querySelector('[aria-label="View hidden phone number"]') && document.querySelector('[aria-label="View hidden phone number"]').click()) {
-  }
-  setTimeout(function() {
-    g_phoneNumber = document.querySelector("span.value._ngcontent-dsm-78").innerText
-  }, 1000)
-  return g_phoneNumber
-}
-
 // Salva a edição realizada
 function saveDraft() {
   Array.from(document.querySelectorAll('[contenteditable="true"]')).filter(function (e) {
@@ -60,6 +51,14 @@ function saveDraft() {
   document.execCommand('insertText', false, ' ')
 }
 
+function returnPhone() {
+  if (document.querySelector('[aria-label="View hidden phone number"]') && document.querySelector('[aria-label="View hidden phone number"]').click()) {
+  }
+  setTimeout(function() {
+    g_phoneNumber = document.querySelector("span.value._ngcontent-dsm-78").innerText
+  }, 1000)
+  return g_phoneNumber
+}
 
 setCustumerEmail()
 setTimeout(function() {
