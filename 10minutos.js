@@ -31,10 +31,9 @@ function g_Appointment() {
 function returnName() {
   document.querySelector('img[class*="photo"]').click()
   setTimeout(function () {
-    name = document.querySelector("profile-details > div > div.name").innerText.split(' ')
-    g_agent_name = name[0]
+    g_agent_name = document.querySelector("profile-details > div > div.name").innerText.split(' ')    
   }, 300)
-  return g_agent_name
+  return g_agent_name[0]
 }
 
 function returnPhone() {
